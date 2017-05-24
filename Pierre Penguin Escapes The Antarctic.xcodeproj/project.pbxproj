@@ -15,6 +15,7 @@
 		BCC4951C1ED5CB2100A9C310 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC4951A1ED5CB2100A9C310 /* Main.storyboard */; };
 		BCC4951E1ED5CB2100A9C310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCC4951D1ED5CB2100A9C310 /* Assets.xcassets */; };
 		BCC495211ED5CB2100A9C310 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC4951F1ED5CB2100A9C310 /* LaunchScreen.storyboard */; };
+		BCC4952B1ED5D4EF00A9C310 /* GameSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4952A1ED5D4EF00A9C310 /* GameSprite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		BCC4951D1ED5CB2100A9C310 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCC495201ED5CB2100A9C310 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCC495221ED5CB2100A9C310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCC4952A1ED5D4EF00A9C310 /* GameSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSprite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				BCC4951D1ED5CB2100A9C310 /* Assets.xcassets */,
 				BCC4951F1ED5CB2100A9C310 /* LaunchScreen.storyboard */,
 				BCC495221ED5CB2100A9C310 /* Info.plist */,
+				BCC4952A1ED5D4EF00A9C310 /* GameSprite.swift */,
 			);
 			path = "Pierre Penguin Escapes The Antarctic";
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCC4952B1ED5D4EF00A9C310 /* GameSprite.swift in Sources */,
 				BCC495171ED5CB2100A9C310 /* GameScene.swift in Sources */,
 				BCC495191ED5CB2100A9C310 /* GameViewController.swift in Sources */,
 				BCC495111ED5CB2100A9C310 /* AppDelegate.swift in Sources */,

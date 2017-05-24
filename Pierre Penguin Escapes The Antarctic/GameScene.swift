@@ -1,89 +1,75 @@
-//
-//  GameScene.swift
-//  Pierre Penguin Escapes The Antarctic
-//
-//  Created by Sebastien Thibert on 24/05/2017.
-//  Copyright © 2017 Sebastien Thibert. All rights reserved.
-//
-
 import SpriteKit
-import GameplayKit
 
 class GameScene: SKScene {
+  // Create a constant cam as a SKCameraNode:
+  let cam = SKCameraNode()
+  // Create our bee node as a property of GameScene so we can
+  // access it throughout the class
+  // (Make sure to remove the old bee declaration below)
+  let bee = SKSpriteNode()
+  
+  override func didMove(to view: SKView) {
+    self.anchorPoint = .zero
+    self.backgroundColor = UIColor(red: 0.4, green: 0.6, blue:
+      0.95, alpha: 1.0)
     
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
+    // Assign the camera to the scene
+    self.camera = cam
     
-    override func didMove(to view: SKView) {
-        
-        // Get label node from scene and store it for use later
-        self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
-        if let label = self.label {
-            label.alpha = 0.0
-            label.run(SKAction.fadeIn(withDuration: 2.0))
-        }
-        
-        // Create shape node to use during mouse interaction
-        let w = (self.size.width + self.size.height) * 0.05
-        self.spinnyNode = SKShapeNode.init(rectOf: CGSize.init(width: w, height: w), cornerRadius: w * 0.3)
-        
-        if let spinnyNode = self.spinnyNode {
-            spinnyNode.lineWidth = 2.5
-            
-            spinnyNode.run(SKAction.repeatForever(SKAction.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
-            spinnyNode.run(SKAction.sequence([SKAction.wait(forDuration: 0.5),
-                                              SKAction.fadeOut(withDuration: 0.5),
-                                              SKAction.removeFromParent()]))
-        }
-    }
+    // Call the new bee function
+    self.addTheFlyingBee()
+  }
+  
+  // A new function
+  override func didSimulatePhysics() {
+    // Keep the camera centered on the bee
+    // Notice the ! operator after camera. SKScene's camera
+    // is an optional, but we know it is there since we
+    // assigned it above in the didMove function. We can tell
+    // Swift that we know it can unwrap this value by using
+    // the ! operator after the property name.
+    self.camera!.position = bee.position
+  }
+  
+  // I moved all of our bee animation code into a new function:
+  func addTheFlyingBee() {
+    // Position our bee
+    bee.position = CGPoint(x: 250, y: 250)
+    bee.size = CGSize(width: 28, height: 24)
+    // Add the bee to the scene
+    self.addChild(bee)
     
+    // Find the bee textures from the texture atlas
+    let beeAtlas = SKTextureAtlas(named:"Enemies")
+    let beeFrames:[SKTexture] = [
+      beeAtlas.textureNamed("bee"),
+      beeAtlas.textureNamed("bee-fly")]
+    // Create a new SKAction to animate between the frames
+    let flyAction = SKAction.animate(with: beeFrames,
+                                     timePerFrame: 0.14)
+    // Create an SKAction to run the flyAction repeatedly
+    let beeAction = SKAction.repeatForever(flyAction)
+    // Instruct our bee to run the final repeat action:
+    bee.run(beeAction)
     
-    func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
-    }
+    // Set up new actions to move our bee back and forth:
+    let pathLeft =
+      SKAction.moveBy(x: -200, y: -10, duration: 2)
+    let pathRight =
+      SKAction.moveBy(x: 200, y: 10, duration: 2)
+    let flipTextureNegative =
+      SKAction.scaleX(to: -1, duration: 0)
+    let flipTexturePositive =
+      SKAction.scaleX(to: 1, duration: 0)
+    // Combine actions into a cohesive flight sequence
+    let flightOfTheBee = SKAction.sequence([
+      pathLeft,flipTextureNegative, pathRight,
+      flipTexturePositive])
+    // Last, create a looping action that will repeat forever
+    let neverEndingFlight =
+      SKAction.repeatForever(flightOfTheBee)
     
-    func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let label = self.label {
-            label.run(SKAction.init(named: "Pulse")!, withKey: "fadeInOut")
-        }
-        
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
-    }
-    
-    
-    override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
-    }
+    // Tell our bee to run the flight path, and away it goes!
+    bee.run(neverEndingFlight)
+  }
 }
