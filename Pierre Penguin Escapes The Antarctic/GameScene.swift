@@ -7,6 +7,8 @@ class GameScene: SKScene {
   var screenCenterY = CGFloat()
   let initialPlayerPosition = CGPoint(x: 150, y: 250)
   var playerProgress = CGFloat()
+  let encounterManager = EncounterManager()
+  var nextEncounterSpawnPosition = CGFloat(150)
   
   override func didMove(to view: SKView) {
     self.anchorPoint = .zero
@@ -16,18 +18,9 @@ class GameScene: SKScene {
     // Assign the camera to the scene
     self.camera = cam
     
-    // Spawn our test bees:
-    let bee2 = Bee()
-    bee2.position = CGPoint(x: 325, y: 325)
-    self.addChild(bee2)
-    let bee3 = Bee()
-    bee3.position = CGPoint(x: 200, y: 325)
-    self.addChild(bee3)
-    
     // Add the ground to the scene:
     ground.position = CGPoint(x: -self.size.width * 2, y: 30)
-    ground.size = CGSize(width: self.size.width * 6,
-                         height: 0)
+    ground.size = CGSize(width: self.size.width * 6, height: 0)
     ground.createChildren()
     self.addChild(ground)
     
@@ -40,6 +33,8 @@ class GameScene: SKScene {
     
     // Store the vertical center of the screen:
     screenCenterY = self.size.height / 2
+    
+    encounterManager.addEncountersToScene(gameScene: self)
   }
   
   override func touchesBegan(_ touches: Set<UITouch>,
@@ -97,6 +92,13 @@ class GameScene: SKScene {
     
     // Check to see if the ground should jump forward:
     ground.checkForReposition(playerProgress: playerProgress)
+    
+    // Check to see if we should set a new encounter:
+    if player.position.x > nextEncounterSpawnPosition {
+      encounterManager.placeNextEncounter(
+        currentXPos: nextEncounterSpawnPosition)
+      nextEncounterSpawnPosition += 1200
+    }
   }
   
   override func update(_ currentTime: TimeInterval) {

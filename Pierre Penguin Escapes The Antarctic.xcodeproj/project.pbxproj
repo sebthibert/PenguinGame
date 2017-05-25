@@ -10,6 +10,15 @@
 		BCB8FC141ED5D73C00098EC2 /* Bee.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8FC131ED5D73C00098EC2 /* Bee.swift */; };
 		BCB8FC161ED5D7CA00098EC2 /* Ground.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8FC151ED5D7CA00098EC2 /* Ground.swift */; };
 		BCB8FC181ED5D89B00098EC2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8FC171ED5D89B00098EC2 /* Player.swift */; };
+		BCB8FC1A1ED76EE100098EC2 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8FC191ED76EE100098EC2 /* Star.swift */; };
+		BCB8FC1C1ED76F1F00098EC2 /* MadFly.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8FC1B1ED76F1F00098EC2 /* MadFly.swift */; };
+		BCB8FC1E1ED76F3A00098EC2 /* Bat.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8FC1D1ED76F3A00098EC2 /* Bat.swift */; };
+		BCB8FC201ED76F6300098EC2 /* Blade.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8FC1F1ED76F6300098EC2 /* Blade.swift */; };
+		BCB8FC221ED76F9100098EC2 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8FC211ED76F9100098EC2 /* Coin.swift */; };
+		BCB8FC271ED771EC00098EC2 /* EncounterA.sks in Resources */ = {isa = PBXBuildFile; fileRef = BCB8FC261ED771EC00098EC2 /* EncounterA.sks */; };
+		BCB8FC291ED7734400098EC2 /* EncounterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8FC281ED7734400098EC2 /* EncounterManager.swift */; };
+		BCB8FC2B1ED773E800098EC2 /* EncounterB.sks in Resources */ = {isa = PBXBuildFile; fileRef = BCB8FC2A1ED773E800098EC2 /* EncounterB.sks */; };
+		BCB8FC2D1ED7746600098EC2 /* EncounterC.sks in Resources */ = {isa = PBXBuildFile; fileRef = BCB8FC2C1ED7746600098EC2 /* EncounterC.sks */; };
 		BCC495111ED5CB2100A9C310 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC495101ED5CB2100A9C310 /* AppDelegate.swift */; };
 		BCC495131ED5CB2100A9C310 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BCC495121ED5CB2100A9C310 /* GameScene.sks */; };
 		BCC495151ED5CB2100A9C310 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = BCC495141ED5CB2100A9C310 /* Actions.sks */; };
@@ -25,6 +34,15 @@
 		BCB8FC131ED5D73C00098EC2 /* Bee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bee.swift; sourceTree = "<group>"; };
 		BCB8FC151ED5D7CA00098EC2 /* Ground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ground.swift; sourceTree = "<group>"; };
 		BCB8FC171ED5D89B00098EC2 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		BCB8FC191ED76EE100098EC2 /* Star.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
+		BCB8FC1B1ED76F1F00098EC2 /* MadFly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MadFly.swift; sourceTree = "<group>"; };
+		BCB8FC1D1ED76F3A00098EC2 /* Bat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bat.swift; sourceTree = "<group>"; };
+		BCB8FC1F1ED76F6300098EC2 /* Blade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blade.swift; sourceTree = "<group>"; };
+		BCB8FC211ED76F9100098EC2 /* Coin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		BCB8FC261ED771EC00098EC2 /* EncounterA.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EncounterA.sks; sourceTree = "<group>"; };
+		BCB8FC281ED7734400098EC2 /* EncounterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncounterManager.swift; sourceTree = "<group>"; };
+		BCB8FC2A1ED773E800098EC2 /* EncounterB.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EncounterB.sks; sourceTree = "<group>"; };
+		BCB8FC2C1ED7746600098EC2 /* EncounterC.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EncounterC.sks; sourceTree = "<group>"; };
 		BCC4950D1ED5CB2100A9C310 /* Pierre Penguin Escapes The Antarctic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pierre Penguin Escapes The Antarctic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC495101ED5CB2100A9C310 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCC495121ED5CB2100A9C310 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -49,6 +67,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BCB8FC231ED7719900098EC2 /* Encounters */ = {
+			isa = PBXGroup;
+			children = (
+				BCB8FC261ED771EC00098EC2 /* EncounterA.sks */,
+				BCB8FC2A1ED773E800098EC2 /* EncounterB.sks */,
+				BCB8FC2C1ED7746600098EC2 /* EncounterC.sks */,
+			);
+			name = Encounters;
+			sourceTree = "<group>";
+		};
 		BCC495041ED5CB2000A9C310 = {
 			isa = PBXGroup;
 			children = (
@@ -68,19 +96,26 @@
 		BCC4950F1ED5CB2100A9C310 /* Pierre Penguin Escapes The Antarctic */ = {
 			isa = PBXGroup;
 			children = (
-				BCC495101ED5CB2100A9C310 /* AppDelegate.swift */,
-				BCC495121ED5CB2100A9C310 /* GameScene.sks */,
-				BCC495141ED5CB2100A9C310 /* Actions.sks */,
-				BCC495161ED5CB2100A9C310 /* GameScene.swift */,
-				BCC495181ED5CB2100A9C310 /* GameViewController.swift */,
-				BCC4951A1ED5CB2100A9C310 /* Main.storyboard */,
-				BCC4951D1ED5CB2100A9C310 /* Assets.xcassets */,
-				BCC4951F1ED5CB2100A9C310 /* LaunchScreen.storyboard */,
 				BCC495221ED5CB2100A9C310 /* Info.plist */,
-				BCC4952A1ED5D4EF00A9C310 /* GameSprite.swift */,
+				BCC495141ED5CB2100A9C310 /* Actions.sks */,
+				BCC495121ED5CB2100A9C310 /* GameScene.sks */,
+				BCC495101ED5CB2100A9C310 /* AppDelegate.swift */,
+				BCB8FC1D1ED76F3A00098EC2 /* Bat.swift */,
 				BCB8FC131ED5D73C00098EC2 /* Bee.swift */,
+				BCB8FC1F1ED76F6300098EC2 /* Blade.swift */,
+				BCB8FC211ED76F9100098EC2 /* Coin.swift */,
+				BCB8FC281ED7734400098EC2 /* EncounterManager.swift */,
+				BCC495161ED5CB2100A9C310 /* GameScene.swift */,
+				BCC4952A1ED5D4EF00A9C310 /* GameSprite.swift */,
+				BCC495181ED5CB2100A9C310 /* GameViewController.swift */,
 				BCB8FC151ED5D7CA00098EC2 /* Ground.swift */,
+				BCB8FC1B1ED76F1F00098EC2 /* MadFly.swift */,
 				BCB8FC171ED5D89B00098EC2 /* Player.swift */,
+				BCB8FC191ED76EE100098EC2 /* Star.swift */,
+				BCC4951D1ED5CB2100A9C310 /* Assets.xcassets */,
+				BCB8FC231ED7719900098EC2 /* Encounters */,
+				BCC4951F1ED5CB2100A9C310 /* LaunchScreen.storyboard */,
+				BCC4951A1ED5CB2100A9C310 /* Main.storyboard */,
 			);
 			path = "Pierre Penguin Escapes The Antarctic";
 			sourceTree = "<group>";
@@ -145,9 +180,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCB8FC2B1ED773E800098EC2 /* EncounterB.sks in Resources */,
 				BCC4951C1ED5CB2100A9C310 /* Main.storyboard in Resources */,
 				BCC495131ED5CB2100A9C310 /* GameScene.sks in Resources */,
+				BCB8FC2D1ED7746600098EC2 /* EncounterC.sks in Resources */,
 				BCC4951E1ED5CB2100A9C310 /* Assets.xcassets in Resources */,
+				BCB8FC271ED771EC00098EC2 /* EncounterA.sks in Resources */,
 				BCC495211ED5CB2100A9C310 /* LaunchScreen.storyboard in Resources */,
 				BCC495151ED5CB2100A9C310 /* Actions.sks in Resources */,
 			);
@@ -165,8 +203,14 @@
 				BCC4952B1ED5D4EF00A9C310 /* GameSprite.swift in Sources */,
 				BCC495171ED5CB2100A9C310 /* GameScene.swift in Sources */,
 				BCB8FC181ED5D89B00098EC2 /* Player.swift in Sources */,
+				BCB8FC1E1ED76F3A00098EC2 /* Bat.swift in Sources */,
+				BCB8FC221ED76F9100098EC2 /* Coin.swift in Sources */,
 				BCC495191ED5CB2100A9C310 /* GameViewController.swift in Sources */,
 				BCC495111ED5CB2100A9C310 /* AppDelegate.swift in Sources */,
+				BCB8FC201ED76F6300098EC2 /* Blade.swift in Sources */,
+				BCB8FC1C1ED76F1F00098EC2 /* MadFly.swift in Sources */,
+				BCB8FC291ED7734400098EC2 /* EncounterManager.swift in Sources */,
+				BCB8FC1A1ED76EE100098EC2 /* Star.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
