@@ -12,6 +12,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   let powerUpStar = Star()
   var coinsCollected = 0
   let hud = HUD()
+  var backgrounds:[Background] = []
   
   override func didMove(to view: SKView) {
     self.anchorPoint = .zero
@@ -52,6 +53,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     hud.createHudNodes(screenSize: self.size)
     // Add the HUD to the camera's node tree:
     self.camera!.addChild(hud)
+    
+    // Instantiate three Backgrounds to the backgrounds array:
+    for _ in 0..<3 {
+      backgrounds.append(Background())
+    }
+    // Spawn the new backgrounds:
+    backgrounds[0].spawn(parentNode: self,
+                         imageName: "background-front", zPosition: -5,
+                         movementMultiplier: 0.75)
+    backgrounds[1].spawn(parentNode: self,
+                         imageName: "background-middle", zPosition: -10,
+                         movementMultiplier: 0.5)
+    backgrounds[2].spawn(parentNode: self,
+                         imageName: "background-back", zPosition: -15,
+                         movementMultiplier: 0.2)
   }
   
   override func touchesBegan(_ touches: Set<UITouch>,
@@ -133,6 +149,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         powerUpStar.physicsBody?.velocity =
           CGVector(dx: 0, dy: 0)
       }
+    }
+    
+    // Position the backgrounds:
+    for background in self.backgrounds {
+      background.updatePosition(playerProgress:
+        playerProgress)
     }
   }
   
