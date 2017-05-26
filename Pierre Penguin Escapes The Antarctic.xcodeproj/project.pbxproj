@@ -121,13 +121,13 @@
 				BCB8FC151ED5D7CA00098EC2 /* Ground.swift */,
 				BCB8FC2E1ED81FD100098EC2 /* HUD.swift */,
 				BCB8FC1B1ED76F1F00098EC2 /* MadFly.swift */,
+				BCB8FC341ED8269E00098EC2 /* MenuScene.swift */,
 				BCB8FC171ED5D89B00098EC2 /* Player.swift */,
 				BCB8FC191ED76EE100098EC2 /* Star.swift */,
 				BCC4951D1ED5CB2100A9C310 /* Assets.xcassets */,
 				BCB8FC231ED7719900098EC2 /* Encounters */,
 				BCC4951F1ED5CB2100A9C310 /* LaunchScreen.storyboard */,
 				BCC4951A1ED5CB2100A9C310 /* Main.storyboard */,
-				BCB8FC341ED8269E00098EC2 /* MenuScene.swift */,
 			);
 			path = "Pierre Penguin Escapes The Antarctic";
 			sourceTree = "<group>";

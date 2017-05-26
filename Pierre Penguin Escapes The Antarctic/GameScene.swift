@@ -84,8 +84,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     } 
   }
   
-  override func touchesBegan(_ touches: Set<UITouch>,
-                             with event: UIEvent?) {
+  override func touchesBegan(_ touches: Set<UITouch>, with event:
+    UIEvent?) {
     for touch in (touches) {
       // Find the location of the touch:
       let location = touch.location(in: self)
@@ -95,6 +95,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       if let gameSprite = nodeTouched as? GameSprite {
         // If this node adheres to GameSprite, call onTap:
         gameSprite.onTap()
+      }
+      
+      // Check for HUD buttons:
+      if nodeTouched.name == "restartGame" {
+        // Transition to a new version of the GameScene
+        // to restart the game:
+        self.view?.presentScene(
+          GameScene(size: self.size),
+          transition: .crossFade(withDuration: 0.6))
+      }
+      else if nodeTouched.name == "returnToMenu" {
+        // Transition to the main menu scene:
+        self.view?.presentScene(
+          MenuScene(size: self.size),
+          transition: .crossFade(withDuration: 0.6))
       }
     }
     
@@ -219,6 +234,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     default:
       print("Contact with no game logic")
     }
+  }
+  
+  func gameOver() {
+    // Show the restart and main menu buttons:
+    hud.showButtons()
   }
 }
 
