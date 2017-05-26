@@ -59,6 +59,17 @@ class Player : SKSpriteNode, GameSprite {
       PhysicsCategory.coin.rawValue
     self.physicsBody?.collisionBitMask =
       PhysicsCategory.ground.rawValue
+    // Grant a momentary reprieve from gravity:
+    self.physicsBody?.affectedByGravity = false
+    // Add some slight upward velocity:
+    self.physicsBody?.velocity.dy = 80
+    // Create a SKAction to start gravity after a small delay:
+    let startGravitySequence = SKAction.sequence([
+      SKAction.wait(forDuration: 0.6),
+      SKAction.run {
+        self.physicsBody?.affectedByGravity = true
+      }])
+    self.run(startGravitySequence)
   }
   
   func createAnimations() {
