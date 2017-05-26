@@ -1,6 +1,6 @@
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
   let cam = SKCameraNode()
   let ground = Ground()
   let player = Player()
@@ -9,6 +9,7 @@ class GameScene: SKScene {
   var playerProgress = CGFloat()
   let encounterManager = EncounterManager()
   var nextEncounterSpawnPosition = CGFloat(150)
+  let powerUpStar = Star()
   
   override func didMove(to view: SKView) {
     self.anchorPoint = .zero
@@ -35,6 +36,11 @@ class GameScene: SKScene {
     screenCenterY = self.size.height / 2
     
     encounterManager.addEncountersToScene(gameScene: self)
+    
+    // Place the star out of the way for now:
+    self.addChild(powerUpStar)
+    powerUpStar.position = CGPoint(x: -2000, y: -2000)
+    self.physicsWorld.contactDelegate = self
   }
   
   override func touchesBegan(_ touches: Set<UITouch>,
@@ -99,9 +105,72 @@ class GameScene: SKScene {
         currentXPos: nextEncounterSpawnPosition)
       nextEncounterSpawnPosition += 1200
     }
+    
+    // Each encounter has a 10% chance to spawn a star:
+    let starRoll = Int(arc4random_uniform(10))
+    if starRoll == 0 {
+      // Only move the star if it is off the screen.
+      if abs(player.position.x - powerUpStar.position.x)
+        > 1200 {
+        // Y Position 50-450:
+        let randomYPos = 50 +
+          CGFloat(arc4random_uniform(400))
+        powerUpStar.position = CGPoint(x:
+          nextEncounterSpawnPosition, y: randomYPos)
+        // Remove any previous velocity and spin:
+        powerUpStar.physicsBody?.angularVelocity = 0
+        powerUpStar.physicsBody?.velocity =
+          CGVector(dx: 0, dy: 0)
+      }
+    }
   }
   
   override func update(_ currentTime: TimeInterval) {
     player.update()
   }
+  
+  func didBegin(_ contact: SKPhysicsContact) {
+    // Each contact has two bodies,
+    // We do not know which is which.
+    // We will find the penguin body first, then use
+    // the other body to determine the type of contact.
+    let otherBody:SKPhysicsBody
+    // Combine the two penguin physics categories into one
+    // bitmask using the bitwise OR operator |
+    let penguinMask = PhysicsCategory.penguin.rawValue |
+      PhysicsCategory.damagedPenguin.rawValue
+    // Use the bitwise AND operator & to find the penguin.
+    // This returns a positive number if body A's category
+    // is the same as either the penguin or damagedPenguin:
+    if (contact.bodyA.categoryBitMask & penguinMask) > 0 {
+      // bodyA is the penguin, we will test bodyB's type:
+      otherBody = contact.bodyB
+    }
+    else {
+      // bodyB is the penguin, we will test bodyA's type:
+      otherBody = contact.bodyA
+    }
+    // Find the type of contact:
+    switch otherBody.categoryBitMask {
+    case PhysicsCategory.ground.rawValue:
+      print("hit the ground")
+    case PhysicsCategory.enemy.rawValue:
+      print("take damage")
+    case PhysicsCategory.coin.rawValue:
+      print("collect a coin")
+    case PhysicsCategory.powerup.rawValue:
+      print("start the power-up")
+    default:
+      print("Contact with no game logic")
+    }
+  }
+}
+
+enum PhysicsCategory:UInt32 {
+  case penguin = 1
+  case damagedPenguin = 2
+  case ground = 4
+  case enemy = 8
+  case coin = 16
+  case powerup = 32
 }

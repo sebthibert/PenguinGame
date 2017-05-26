@@ -41,6 +41,9 @@ class Ground: SKSpriteNode, GameSprite {
       self.addChild(tileNode)
       
       tileCount += 1
+      
+      self.physicsBody?.categoryBitMask =
+        PhysicsCategory.ground.rawValue
     }
     
     // Draw an edge physics body along the top of the ground node.
