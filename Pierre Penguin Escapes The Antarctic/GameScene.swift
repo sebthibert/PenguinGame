@@ -25,7 +25,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     self.physicsWorld.contactDelegate = self
     self.addChild(self.camera!)
     self.camera!.zPosition = 50
-    self.run(SKAction.playSoundFileNamed("Sound/StartGame.aif", waitForCompletion: false))
+    if !muted { self.run(SKAction.playSoundFileNamed("Sound/StartGame.aif", waitForCompletion: false)) }
     
     ground.position = CGPoint(x: -self.size.width * 2, y: 30)
     ground.size = CGSize(width: self.size.width * 6, height: 0)

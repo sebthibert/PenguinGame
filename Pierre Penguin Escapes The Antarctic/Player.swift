@@ -161,7 +161,7 @@ class Player : SKSpriteNode, GameSprite {
       self.run(self.damageAnimation)
     }
 
-    self.run(hurtSound)
+    if !muted { self.run(hurtSound) }
   }
   
   func die() {
@@ -194,7 +194,7 @@ class Player : SKSpriteNode, GameSprite {
     
     self.run(starSequence, withKey: "starPower")
     
-    self.run(powerupSound)
+    if !muted { self.run(powerupSound) }
   }
   
   func onTap() {

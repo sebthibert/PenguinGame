@@ -40,7 +40,7 @@ class Coin: SKSpriteNode, GameSprite {
 
     let collectSequence = SKAction.sequence([collectAnimation, resetAfterCollected])
     self.run(collectSequence)
-    self.run(coinSound)
+    if !muted { self.run(coinSound) }
   }
   
   func onTap() {}

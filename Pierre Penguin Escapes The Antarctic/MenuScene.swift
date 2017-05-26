@@ -3,6 +3,7 @@ import SpriteKit
 class MenuScene: SKScene {
   let textureAtlas = SKTextureAtlas(named:"HUD")
   let startButton = SKSpriteNode()
+  let muteButton = SKSpriteNode()
   
   override func didMove(to view: SKView) {
     self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
@@ -22,9 +23,16 @@ class MenuScene: SKScene {
     logoTextBottom.fontSize = 40
     self.addChild(logoTextBottom)
     
+    if muted { muteButton.texture = textureAtlas.textureNamed("unmute") }
+    if !muted { muteButton.texture = textureAtlas.textureNamed("mute") }
+    muteButton.size = CGSize(width: 50, height: 50)
+    muteButton.name = "MuteButton"
+    muteButton.position = CGPoint(x: 0, y: -100)
+    self.addChild(muteButton)
+    
     startButton.texture = textureAtlas.textureNamed("button")
     startButton.size = CGSize(width: 295, height: 76)
-    startButton.name = "StartBtn"
+    startButton.name = "StartButton"
     startButton.position = CGPoint(x: 0, y: -20)
     self.addChild(startButton)
     
@@ -33,7 +41,7 @@ class MenuScene: SKScene {
     startText.verticalAlignmentMode = .center
     startText.position = CGPoint(x: 0, y: 2)
     startText.fontSize = 40
-    startText.name = "StartBtn"
+    startText.name = "StartButton"
     startText.zPosition = 5
     startButton.addChild(startText)
     
@@ -49,8 +57,19 @@ class MenuScene: SKScene {
     for touch in (touches) {
       let location = touch.location(in: self)
       let nodeTouched = atPoint(location)
-      if nodeTouched.name == "StartBtn" {
+      if nodeTouched.name == "StartButton" {
         self.view?.presentScene(GameScene(size: self.size))
+      } else if nodeTouched.name == "MuteButton" {
+        if muted {
+          muteButton.texture = textureAtlas.textureNamed("mute")
+          musicPlayer.play()
+          muted = false
+        }
+        else {
+          muteButton.texture = textureAtlas.textureNamed("unmute")
+          musicPlayer.pause()
+          muted = true
+        }
       }
     }
   }

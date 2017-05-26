@@ -28,6 +28,7 @@
 		BCB8FC3B1ED8306100098EC2 /* HeartExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = BCB8FC3A1ED8306100098EC2 /* HeartExplosion.sks */; };
 		BCB8FC3D1ED830E300098EC2 /* CrateExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = BCB8FC3C1ED830E300098EC2 /* CrateExplosion.sks */; };
 		BCB8FC401ED8318A00098EC2 /* ParticlePool.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8FC3F1ED8318A00098EC2 /* ParticlePool.swift */; };
+		BCB8FC441ED870BF00098EC2 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8FC431ED870BF00098EC2 /* Global.swift */; };
 		BCC495111ED5CB2100A9C310 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC495101ED5CB2100A9C310 /* AppDelegate.swift */; };
 		BCC495131ED5CB2100A9C310 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BCC495121ED5CB2100A9C310 /* GameScene.sks */; };
 		BCC495151ED5CB2100A9C310 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = BCC495141ED5CB2100A9C310 /* Actions.sks */; };
@@ -61,6 +62,7 @@
 		BCB8FC3A1ED8306100098EC2 /* HeartExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HeartExplosion.sks; sourceTree = "<group>"; };
 		BCB8FC3C1ED830E300098EC2 /* CrateExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CrateExplosion.sks; sourceTree = "<group>"; };
 		BCB8FC3F1ED8318A00098EC2 /* ParticlePool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticlePool.swift; sourceTree = "<group>"; };
+		BCB8FC431ED870BF00098EC2 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		BCC4950D1ED5CB2100A9C310 /* Pierre Penguin Escapes The Antarctic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pierre Penguin Escapes The Antarctic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC495101ED5CB2100A9C310 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCC495121ED5CB2100A9C310 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				BCC495161ED5CB2100A9C310 /* GameScene.swift */,
 				BCC4952A1ED5D4EF00A9C310 /* GameSprite.swift */,
 				BCC495181ED5CB2100A9C310 /* GameViewController.swift */,
+				BCB8FC431ED870BF00098EC2 /* Global.swift */,
 				BCB8FC151ED5D7CA00098EC2 /* Ground.swift */,
 				BCB8FC2E1ED81FD100098EC2 /* HUD.swift */,
 				BCB8FC1B1ED76F1F00098EC2 /* MadFly.swift */,
@@ -241,6 +244,7 @@
 				BCB8FC141ED5D73C00098EC2 /* Bee.swift in Sources */,
 				BCC4952B1ED5D4EF00A9C310 /* GameSprite.swift in Sources */,
 				BCC495171ED5CB2100A9C310 /* GameScene.swift in Sources */,
+				BCB8FC441ED870BF00098EC2 /* Global.swift in Sources */,
 				BCB8FC181ED5D89B00098EC2 /* Player.swift in Sources */,
 				BCB8FC1E1ED76F3A00098EC2 /* Bat.swift in Sources */,
 				BCB8FC221ED76F9100098EC2 /* Coin.swift in Sources */,
