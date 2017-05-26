@@ -29,4 +29,34 @@ class Coin: SKSpriteNode, GameSprite {
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
+  
+  func collect() {
+    // Prevent further contact:
+    self.physicsBody?.categoryBitMask = 0
+    // Fade out, move up, and scale up the coin:
+    let collectAnimation = SKAction.group([
+      SKAction.fadeAlpha(to: 0, duration: 0.2),
+      SKAction.scale(to: 1.5, duration: 0.2),
+      SKAction.move(by: CGVector(dx: 0, dy: 25),
+                    duration: 0.2)
+      ])
+    // After fading it out, move the coin out of the way
+    // and reset it to initial values until the encounter
+    // system re-uses it:
+    let resetAfterCollected = SKAction.run {
+      self.position.y = 5000
+      self.alpha = 1
+      self.xScale = 1
+      self.yScale = 1
+      self.physicsBody?.categoryBitMask =
+        PhysicsCategory.coin.rawValue
+    }
+    // Combine the actions into a sequence:
+    let collectSequence = SKAction.sequence([
+      collectAnimation,
+      resetAfterCollected
+      ])
+    // Run the collect animation:
+    self.run(collectSequence)
+  }
 }
