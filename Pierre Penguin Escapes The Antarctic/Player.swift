@@ -29,6 +29,8 @@ class Player : SKSpriteNode, GameSprite {
   // We want to stop forward velocity if the player dies,
   // so we will now store forward velocity as a property:
   var forwardVelocity:CGFloat = 200
+  let powerupSound = SKAction.playSoundFileNamed("Sound/Powerup.aif", waitForCompletion: false)
+  let hurtSound = SKAction.playSoundFileNamed("Sound/Hurt.aif", waitForCompletion: false)
   
   init() {
     // Call the init function on the
@@ -239,6 +241,9 @@ class Player : SKSpriteNode, GameSprite {
       // Run the take damage animation:
       self.run(self.damageAnimation)
     }
+    
+    // Play the hurt sound:
+    self.run(hurtSound)
   }
   
   func die() {
@@ -281,6 +286,9 @@ class Player : SKSpriteNode, GameSprite {
       ])
     // Execute the sequence:
     self.run(starSequence, withKey: "starPower")
+    
+    // Play the powerup sound:
+    self.run(powerupSound)
   }
   
   // Satisfy the NSCoder required init:
