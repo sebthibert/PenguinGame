@@ -87,6 +87,11 @@ class EncounterManager {
         spriteNode.physicsBody?.angularVelocity = 0
         // Reset the rotation of the sprite:
         spriteNode.zRotation = 0
+        // If this is a Crate, call its reset function:
+        if let crateTest = spriteNode as? Crate {
+          crateTest.reset()
+        }
+        
         if let initialPositionVal =
           spriteNode.userData?.value(forKey:
             "initialPosition") as? NSValue {

@@ -24,6 +24,10 @@
 		BCB8FC331ED824AB00098EC2 /* PierrePath.sks in Resources */ = {isa = PBXBuildFile; fileRef = BCB8FC321ED824AB00098EC2 /* PierrePath.sks */; };
 		BCB8FC351ED8269E00098EC2 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8FC341ED8269E00098EC2 /* MenuScene.swift */; };
 		BCB8FC371ED8293900098EC2 /* Sound in Resources */ = {isa = PBXBuildFile; fileRef = BCB8FC361ED8293900098EC2 /* Sound */; };
+		BCB8FC391ED8301F00098EC2 /* Crate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8FC381ED8301F00098EC2 /* Crate.swift */; };
+		BCB8FC3B1ED8306100098EC2 /* HeartExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = BCB8FC3A1ED8306100098EC2 /* HeartExplosion.sks */; };
+		BCB8FC3D1ED830E300098EC2 /* CrateExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = BCB8FC3C1ED830E300098EC2 /* CrateExplosion.sks */; };
+		BCB8FC401ED8318A00098EC2 /* ParticlePool.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8FC3F1ED8318A00098EC2 /* ParticlePool.swift */; };
 		BCC495111ED5CB2100A9C310 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC495101ED5CB2100A9C310 /* AppDelegate.swift */; };
 		BCC495131ED5CB2100A9C310 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = BCC495121ED5CB2100A9C310 /* GameScene.sks */; };
 		BCC495151ED5CB2100A9C310 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = BCC495141ED5CB2100A9C310 /* Actions.sks */; };
@@ -53,6 +57,10 @@
 		BCB8FC321ED824AB00098EC2 /* PierrePath.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PierrePath.sks; sourceTree = "<group>"; };
 		BCB8FC341ED8269E00098EC2 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		BCB8FC361ED8293900098EC2 /* Sound */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sound; sourceTree = "<group>"; };
+		BCB8FC381ED8301F00098EC2 /* Crate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crate.swift; sourceTree = "<group>"; };
+		BCB8FC3A1ED8306100098EC2 /* HeartExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = HeartExplosion.sks; sourceTree = "<group>"; };
+		BCB8FC3C1ED830E300098EC2 /* CrateExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = CrateExplosion.sks; sourceTree = "<group>"; };
+		BCB8FC3F1ED8318A00098EC2 /* ParticlePool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticlePool.swift; sourceTree = "<group>"; };
 		BCC4950D1ED5CB2100A9C310 /* Pierre Penguin Escapes The Antarctic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pierre Penguin Escapes The Antarctic.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC495101ED5CB2100A9C310 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BCC495121ED5CB2100A9C310 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -87,6 +95,16 @@
 			name = Encounters;
 			sourceTree = "<group>";
 		};
+		BCB8FC3E1ED8315700098EC2 /* Particle Emitters */ = {
+			isa = PBXGroup;
+			children = (
+				BCB8FC3C1ED830E300098EC2 /* CrateExplosion.sks */,
+				BCB8FC3A1ED8306100098EC2 /* HeartExplosion.sks */,
+				BCB8FC321ED824AB00098EC2 /* PierrePath.sks */,
+			);
+			name = "Particle Emitters";
+			sourceTree = "<group>";
+		};
 		BCC495041ED5CB2000A9C310 = {
 			isa = PBXGroup;
 			children = (
@@ -110,13 +128,13 @@
 				BCC495221ED5CB2100A9C310 /* Info.plist */,
 				BCC495141ED5CB2100A9C310 /* Actions.sks */,
 				BCC495121ED5CB2100A9C310 /* GameScene.sks */,
-				BCB8FC321ED824AB00098EC2 /* PierrePath.sks */,
 				BCC495101ED5CB2100A9C310 /* AppDelegate.swift */,
 				BCB8FC301ED8231E00098EC2 /* Background.swift */,
 				BCB8FC1D1ED76F3A00098EC2 /* Bat.swift */,
 				BCB8FC131ED5D73C00098EC2 /* Bee.swift */,
 				BCB8FC1F1ED76F6300098EC2 /* Blade.swift */,
 				BCB8FC211ED76F9100098EC2 /* Coin.swift */,
+				BCB8FC381ED8301F00098EC2 /* Crate.swift */,
 				BCB8FC281ED7734400098EC2 /* EncounterManager.swift */,
 				BCC495161ED5CB2100A9C310 /* GameScene.swift */,
 				BCC4952A1ED5D4EF00A9C310 /* GameSprite.swift */,
@@ -125,12 +143,14 @@
 				BCB8FC2E1ED81FD100098EC2 /* HUD.swift */,
 				BCB8FC1B1ED76F1F00098EC2 /* MadFly.swift */,
 				BCB8FC341ED8269E00098EC2 /* MenuScene.swift */,
+				BCB8FC3F1ED8318A00098EC2 /* ParticlePool.swift */,
 				BCB8FC171ED5D89B00098EC2 /* Player.swift */,
 				BCB8FC191ED76EE100098EC2 /* Star.swift */,
 				BCC4951D1ED5CB2100A9C310 /* Assets.xcassets */,
 				BCB8FC231ED7719900098EC2 /* Encounters */,
 				BCC4951F1ED5CB2100A9C310 /* LaunchScreen.storyboard */,
 				BCC4951A1ED5CB2100A9C310 /* Main.storyboard */,
+				BCB8FC3E1ED8315700098EC2 /* Particle Emitters */,
 			);
 			path = "Pierre Penguin Escapes The Antarctic";
 			sourceTree = "<group>";
@@ -196,8 +216,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCB8FC2B1ED773E800098EC2 /* EncounterB.sks in Resources */,
+				BCB8FC3D1ED830E300098EC2 /* CrateExplosion.sks in Resources */,
 				BCC4951C1ED5CB2100A9C310 /* Main.storyboard in Resources */,
 				BCB8FC371ED8293900098EC2 /* Sound in Resources */,
+				BCB8FC3B1ED8306100098EC2 /* HeartExplosion.sks in Resources */,
 				BCC495131ED5CB2100A9C310 /* GameScene.sks in Resources */,
 				BCB8FC2D1ED7746600098EC2 /* EncounterC.sks in Resources */,
 				BCC4951E1ED5CB2100A9C310 /* Assets.xcassets in Resources */,
@@ -229,8 +251,10 @@
 				BCB8FC2F1ED81FD100098EC2 /* HUD.swift in Sources */,
 				BCB8FC291ED7734400098EC2 /* EncounterManager.swift in Sources */,
 				BCB8FC351ED8269E00098EC2 /* MenuScene.swift in Sources */,
+				BCB8FC391ED8301F00098EC2 /* Crate.swift in Sources */,
 				BCB8FC1A1ED76EE100098EC2 /* Star.swift in Sources */,
 				BCB8FC311ED8231E00098EC2 /* Background.swift in Sources */,
+				BCB8FC401ED8318A00098EC2 /* ParticlePool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

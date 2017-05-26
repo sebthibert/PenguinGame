@@ -18,6 +18,7 @@ class Player : SKSpriteNode, GameSprite {
   let maxHeight:CGFloat = 1000
   // The player will be able to take 3 hits before game over:
   var health:Int = 3
+  let maxHealth = 3
   // Keep track of when the player is invulnerable:
   var invulnerable = false
   // Keep track of when the player is newly damaged:
@@ -58,7 +59,8 @@ class Player : SKSpriteNode, GameSprite {
       PhysicsCategory.enemy.rawValue |
       PhysicsCategory.ground.rawValue |
       PhysicsCategory.powerup.rawValue |
-      PhysicsCategory.coin.rawValue
+      PhysicsCategory.coin.rawValue |
+      PhysicsCategory.crate.rawValue
     self.physicsBody?.collisionBitMask =
       PhysicsCategory.ground.rawValue
     // Grant a momentary reprieve from gravity:
