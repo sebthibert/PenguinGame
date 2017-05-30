@@ -23,8 +23,8 @@ class MenuScene: SKScene {
     logoTextBottom.fontSize = 40
     self.addChild(logoTextBottom)
     
-    if muted { muteButton.texture = textureAtlas.textureNamed("unmute") }
-    if !muted { muteButton.texture = textureAtlas.textureNamed("mute") }
+    if muted { muteButton.texture = textureAtlas.textureNamed("button-unmute") }
+    if !muted { muteButton.texture = textureAtlas.textureNamed("button-mute") }
     muteButton.size = CGSize(width: 50, height: 50)
     muteButton.name = "MuteButton"
     muteButton.position = CGPoint(x: 0, y: -100)
@@ -61,12 +61,12 @@ class MenuScene: SKScene {
         self.view?.presentScene(GameScene(size: self.size))
       } else if nodeTouched.name == "MuteButton" {
         if muted {
-          muteButton.texture = textureAtlas.textureNamed("mute")
+          muteButton.texture = textureAtlas.textureNamed("button-mute")
           musicPlayer.play()
           muted = false
         }
         else {
-          muteButton.texture = textureAtlas.textureNamed("unmute")
+          muteButton.texture = textureAtlas.textureNamed("button-unmute")
           musicPlayer.pause()
           muted = true
         }

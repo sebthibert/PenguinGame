@@ -7,6 +7,8 @@ class HUD: SKNode {
   let coinCountText = SKLabelNode(text: "000000")
   let restartButton = SKSpriteNode()
   let menuButton = SKSpriteNode()
+  let pauseButton = SKSpriteNode()
+  let playButton = SKSpriteNode()
   
   func createHudNodes(screenSize: CGSize) {
     let cameraOrigin = CGPoint(x: screenSize.width / 2, y: screenSize.height / 2)
@@ -21,6 +23,18 @@ class HUD: SKNode {
     coinCountText.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
     self.addChild(coinCountText)
     self.addChild(coinIcon)
+    
+    pauseButton.texture = textureAtlas.textureNamed("button-pause")
+    playButton.texture = textureAtlas.textureNamed("button-play")
+    pauseButton.name = "pauseGame"
+    playButton.name = "playGame"
+    pauseButton.size = CGSize(width: 20, height: 25)
+    playButton.size = CGSize(width: 25, height: 25)
+    pauseButton.position = CGPoint(x: -cameraOrigin.x + 630, y: cameraOrigin.y - 30)
+    playButton.position = CGPoint(x: -cameraOrigin.x + 635, y: cameraOrigin.y - 30)
+    self.addChild(pauseButton)
+    self.addChild(playButton)
+    playButton.isHidden = true
     
     for index in 0 ..< 3 {
       let newHeartNode = SKSpriteNode(texture: textureAtlas.textureNamed("heart-full"))

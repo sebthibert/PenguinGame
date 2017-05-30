@@ -74,6 +74,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.view?.presentScene(GameScene(size: self.size), transition: .crossFade(withDuration: 0.6))
       } else if nodeTouched.name == "returnToMenu" {
         self.view?.presentScene(MenuScene(size: self.size), transition: .crossFade(withDuration: 0.6))
+      } else if nodeTouched.name == "pauseGame" {
+        if self.view?.isPaused == true { return }
+        nodeTouched.isHidden = true
+        hud.playButton.isHidden = false
+        self.isPaused = true
+      } else if nodeTouched.name == "playGame" {
+        if self.view?.isPaused == true { return }
+        nodeTouched.isHidden = true
+        hud.pauseButton.isHidden = false
+        self.isPaused = false
       }
     }
     
@@ -132,6 +142,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   override func update(_ currentTime: TimeInterval) {
+    if self.view?.isPaused == true { return }
     player.update()
   }
   
