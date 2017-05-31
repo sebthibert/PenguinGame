@@ -98,21 +98,19 @@ class Player: SKSpriteNode, GameSprite {
     
     let startDie = SKAction.run {
       self.texture = self.textureAtlas.textureNamed("pierre-dead")
-      self.physicsBody?.affectedByGravity = false
-      self.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
     }
     
-    let endDie = SKAction.run {
-      self.physicsBody?.affectedByGravity = true
+    let openMenuAnimation = SKAction.run {
+      if let gameScene = self.parent as? GameScene {
+        gameScene.gameOver()
+      }
     }
     
     self.dieAnimation = SKAction.sequence([
       startDie,
-      SKAction.scale(to: 1.3, duration: 0.5),
-      SKAction.wait(forDuration: 0.5),
-      SKAction.rotate(toAngle: 3, duration: 1.5),
-      SKAction.wait(forDuration: 0.5),
-      endDie 
+      SKAction.rotate(toAngle: -1, duration: 1),
+      SKAction.wait(forDuration: 1),
+      openMenuAnimation
       ]) 
   }
   
@@ -170,10 +168,6 @@ class Player: SKSpriteNode, GameSprite {
     self.run(self.dieAnimation)
     self.flapping = false
     self.forwardVelocity = 0
-    
-    if let gameScene = self.parent as? GameScene {
-      gameScene.gameOver()
-    }
   }
   
   func starPower() {
@@ -195,9 +189,6 @@ class Player: SKSpriteNode, GameSprite {
     self.run(starSequence, withKey: "starPower")
     
     if !muted { self.run(powerupSound) }
-  }
-  
-  func onTap() {
   }
   
   required init?(coder aDecoder: NSCoder) {

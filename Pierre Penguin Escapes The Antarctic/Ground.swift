@@ -37,6 +37,4 @@ class Ground: SKSpriteNode, GameSprite {
       jumpCount += 1
     }
   }
-  
-  func onTap() {}
 }

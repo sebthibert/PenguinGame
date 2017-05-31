@@ -23,8 +23,6 @@ class Blade: SKSpriteNode, GameSprite {
     spinAnimation = SKAction.repeatForever(spinAction)
   }
   
-  func onTap() {}
-  
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }

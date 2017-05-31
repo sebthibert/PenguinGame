@@ -61,11 +61,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       let location = touch.location(in: self)
       let nodeTouched = atPoint(location)
       
-      if nodeTouched.name == "restartGame" {
-        self.view?.presentScene(GameScene(size: self.size), transition: .crossFade(withDuration: 0.6))
-      } else if nodeTouched.name == "returnToMenu" {
-        self.view?.presentScene(MenuScene(size: self.size), transition: .crossFade(withDuration: 0.6))
-      } else if nodeTouched.name == "pauseGame" {
+      if nodeTouched.name == "pauseGame" {
         if self.view?.isPaused == true { return }
         nodeTouched.isHidden = true
         hud.playButton.isHidden = false
@@ -159,7 +155,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func gameOver() {
-    hud.showButtons()
+    self.view?.presentScene(EndScene(size: self.size), transition: .crossFade(withDuration: 0.6))
   }
 }
 

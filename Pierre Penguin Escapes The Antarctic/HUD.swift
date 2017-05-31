@@ -7,8 +7,6 @@ class HUD: SKNode {
   let coinCountText = SKLabelNode(text: "0")
   let scoreLabel = SKLabelNode(text: "Score: ")
   let scoreCountText = SKLabelNode(text: "0")
-  let restartButton = SKSpriteNode()
-  let menuButton = SKSpriteNode()
   let pauseButton = SKSpriteNode()
   let playButton = SKSpriteNode()
   let fontSize: CGFloat = 25
@@ -65,14 +63,6 @@ class HUD: SKNode {
       heartNodes.append(newHeartNode)
       self.addChild(newHeartNode)
     }
-
-    restartButton.texture = textureAtlas.textureNamed("button-restart")
-    restartButton.name = "restartGame"
-    restartButton.size = CGSize(width: 140, height: 140)
-    menuButton.texture = textureAtlas.textureNamed("button-menu")
-    menuButton.name = "returnToMenu"
-    menuButton.size = CGSize(width: 70, height: 70)
-    menuButton.position = CGPoint(x: -140, y: 0)
   }
   
   func setCoinCountDisplay(newCoinCount: Int) {
@@ -96,15 +86,5 @@ class HUD: SKNode {
         heartNodes[index].run(fadeAction)
       }
     }
-  }
-  
-  func showButtons() {
-    restartButton.alpha = 0
-    menuButton.alpha = 0
-    self.addChild(restartButton)
-    self.addChild(menuButton)
-    let fadeAnimation = SKAction.fadeAlpha(to: 1, duration: 0.4)
-    restartButton.run(fadeAnimation)
-    menuButton.run(fadeAnimation)
   }
 }

@@ -39,6 +39,7 @@
 		BCC4951E1ED5CB2100A9C310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCC4951D1ED5CB2100A9C310 /* Assets.xcassets */; };
 		BCC495211ED5CB2100A9C310 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC4951F1ED5CB2100A9C310 /* LaunchScreen.storyboard */; };
 		BCC4952B1ED5D4EF00A9C310 /* GameSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCC4952A1ED5D4EF00A9C310 /* GameSprite.swift */; };
+		BCD620011EDF27C700A95F0D /* EndScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD620001EDF27C700A95F0D /* EndScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +77,7 @@
 		BCC495201ED5CB2100A9C310 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCC495221ED5CB2100A9C310 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCC4952A1ED5D4EF00A9C310 /* GameSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSprite.swift; sourceTree = "<group>"; };
+		BCD620001EDF27C700A95F0D /* EndScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				BCB8FC211ED76F9100098EC2 /* Coin.swift */,
 				BCB8FC381ED8301F00098EC2 /* Crate.swift */,
 				BCB8FC281ED7734400098EC2 /* EncounterManager.swift */,
+				BCD620001EDF27C700A95F0D /* EndScene.swift */,
 				BCC495161ED5CB2100A9C310 /* GameScene.swift */,
 				BCC4952A1ED5D4EF00A9C310 /* GameSprite.swift */,
 				BCC495181ED5CB2100A9C310 /* GameViewController.swift */,
@@ -258,6 +261,7 @@
 				BCB8FC1C1ED76F1F00098EC2 /* MadFly.swift in Sources */,
 				BCB8FC2F1ED81FD100098EC2 /* HUD.swift in Sources */,
 				BCB8FC291ED7734400098EC2 /* EncounterManager.swift in Sources */,
+				BCD620011EDF27C700A95F0D /* EndScene.swift in Sources */,
 				BCB8FC351ED8269E00098EC2 /* MenuScene.swift in Sources */,
 				BCB8FC391ED8301F00098EC2 /* Crate.swift in Sources */,
 				BCB8FC1A1ED76EE100098EC2 /* Star.swift in Sources */,

@@ -46,8 +46,6 @@ class Crate: SKSpriteNode, GameSprite {
     exploded = false
   }
   
-  func onTap() {}
-  
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }

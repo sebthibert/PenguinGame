@@ -57,6 +57,7 @@ class MenuScene: SKScene {
     for touch in (touches) {
       let location = touch.location(in: self)
       let nodeTouched = atPoint(location)
+      
       if nodeTouched.name == "StartButton" {
         self.view?.presentScene(GameScene(size: self.size))
       } else if nodeTouched.name == "MuteButton" {
@@ -64,8 +65,7 @@ class MenuScene: SKScene {
           muteButton.texture = textureAtlas.textureNamed("button-mute")
           musicPlayer.play()
           muted = false
-        }
-        else {
+        } else {
           muteButton.texture = textureAtlas.textureNamed("button-unmute")
           musicPlayer.pause()
           muted = true
