@@ -1,10 +1,12 @@
 import SpriteKit
 
 class ParticlePool {
-  var cratePool:[SKEmitterNode] = []
-  var heartPool:[SKEmitterNode] = []
+  var cratePool: [SKEmitterNode] = []
+  var heartPool: [SKEmitterNode] = []
+  var enemyPool: [SKEmitterNode] = []
   var crateIndex = 0
   var heartIndex = 0
+  var enemyIndex = 0
   var gameScene = SKScene()
   
   init() {
@@ -23,6 +25,14 @@ class ParticlePool {
       heart.name = "heart" + String(i)
       heartPool.append(heart)
     }
+    
+    for i in 1...5 {
+      let enemy = SKEmitterNode(fileNamed: "EnemyCollision")!
+      enemy.position = CGPoint(x: -2000, y: -2000)
+      enemy.zPosition = CGFloat(45 - i)
+      enemy.name = "enemy" + String(i)
+      enemyPool.append(enemy)
+    }
   }
   
   func addEmittersToScene(scene: GameScene) {
@@ -34,6 +44,10 @@ class ParticlePool {
     
     for i in 0..<heartPool.count {
       self.gameScene.addChild(heartPool[i])
+    }
+    
+    for i in 0..<enemyPool.count {
+      self.gameScene.addChild(enemyPool[i])
     }
   }
   
@@ -52,6 +66,12 @@ class ParticlePool {
       heartIndex += 1
       if heartIndex >= heartPool.count {
         heartIndex = 0
+      }
+    case "enemy":
+      emitter = enemyPool[enemyIndex]
+      enemyIndex += 1
+      if enemyIndex >= enemyPool.count {
+        enemyIndex = 0
       }
     default:
       return

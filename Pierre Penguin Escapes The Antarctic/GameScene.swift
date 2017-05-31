@@ -99,19 +99,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   override func didSimulatePhysics() {
-    var cameraYPos = screenCenterY
-    cam.yScale = 1
-    cam.xScale = 1
-    
-    if (player.position.y > screenCenterY) {
-      cameraYPos = player.position.y
-      let percentOfMaxHeight = (player.position.y - screenCenterY) / (player.maxHeight - screenCenterY)
-      let newScale = 1 + percentOfMaxHeight
-      cam.yScale = newScale
-      cam.xScale = newScale
-    }
-    
-    self.camera!.position = CGPoint(x: player.position.x, y: cameraYPos)
+    self.camera!.position = CGPoint(x: player.position.x, y: player.position.y)
     playerProgress = player.position.x - initialPlayerPosition.x
     ground.checkForReposition(playerProgress: playerProgress)
     
@@ -160,6 +148,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     case PhysicsCategory.enemy.rawValue:
       player.takeDamage()
       hud.setHealthDisplay(newHealth: player.health)
+      if let enemy = otherBody.node as? Bat {
+        enemy.explode(gameScene: self)
+      }
+      if let enemy = otherBody.node as? Bee {
+        enemy.explode(gameScene: self)
+      }
+      if let enemy = otherBody.node as? MadFly {
+        enemy.explode(gameScene: self)
+      }
     case PhysicsCategory.coin.rawValue:
       if let coin = otherBody.node as? Coin {
         coin.collect()

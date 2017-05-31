@@ -50,6 +50,19 @@ class EncounterManager {
         spriteNode.physicsBody?.angularVelocity = 0
         spriteNode.zRotation = 0
         
+        if let batTest = spriteNode as? Bat {
+          batTest.reset()
+        }
+        
+        if let beeTest = spriteNode as? Bee {
+          beeTest.reset()
+        }
+        
+        if let madFlyTest = spriteNode as? MadFly {
+          madFlyTest.reset()
+        }
+        
+        
         if let crateTest = spriteNode as? Crate {
           crateTest.reset()
         }

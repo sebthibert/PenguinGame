@@ -1,20 +1,20 @@
 import SpriteKit
 
-class Player : SKSpriteNode, GameSprite {
+class Player: SKSpriteNode, GameSprite {
   var initialSize = CGSize(width: 64, height: 64)
-  var textureAtlas:SKTextureAtlas = SKTextureAtlas(named:"Pierre")
+  var textureAtlas = SKTextureAtlas(named:"Pierre")
   var flyAnimation = SKAction()
   var soarAnimation = SKAction()
   var damageAnimation = SKAction()
   var dieAnimation = SKAction()
   var flapping = false
-  let maxFlappingForce:CGFloat = 57000
-  let maxHeight:CGFloat = 1000
-  var health:Int = 3
+  let maxFlappingForce = CGFloat(57000)
+  let maxHeight = CGFloat(350)
+  var health = 3
   let maxHealth = 3
   var invulnerable = false
   var damaged = false
-  var forwardVelocity:CGFloat = 200
+  var forwardVelocity = CGFloat(200)
   let powerupSound = SKAction.playSoundFileNamed("Sound/Powerup.aif", waitForCompletion: false)
   let hurtSound = SKAction.playSoundFileNamed("Sound/Hurt.aif", waitForCompletion: false)
   

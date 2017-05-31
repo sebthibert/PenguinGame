@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC6ED5EA1EDED92100A79FE9 /* EnemyCollision.sks in Resources */ = {isa = PBXBuildFile; fileRef = BC6ED5E91EDED92100A79FE9 /* EnemyCollision.sks */; };
 		BCB8FC141ED5D73C00098EC2 /* Bee.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8FC131ED5D73C00098EC2 /* Bee.swift */; };
 		BCB8FC161ED5D7CA00098EC2 /* Ground.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8FC151ED5D7CA00098EC2 /* Ground.swift */; };
 		BCB8FC181ED5D89B00098EC2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8FC171ED5D89B00098EC2 /* Player.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC6ED5E91EDED92100A79FE9 /* EnemyCollision.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EnemyCollision.sks; sourceTree = "<group>"; };
 		BCB8FC131ED5D73C00098EC2 /* Bee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bee.swift; sourceTree = "<group>"; };
 		BCB8FC151ED5D7CA00098EC2 /* Ground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ground.swift; sourceTree = "<group>"; };
 		BCB8FC171ED5D89B00098EC2 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				BCB8FC3C1ED830E300098EC2 /* CrateExplosion.sks */,
 				BCB8FC3A1ED8306100098EC2 /* HeartExplosion.sks */,
 				BCB8FC321ED824AB00098EC2 /* PierrePath.sks */,
+				BC6ED5E91EDED92100A79FE9 /* EnemyCollision.sks */,
 			);
 			name = "Particle Emitters";
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				BCC4951E1ED5CB2100A9C310 /* Assets.xcassets in Resources */,
 				BCB8FC271ED771EC00098EC2 /* EncounterA.sks in Resources */,
 				BCB8FC331ED824AB00098EC2 /* PierrePath.sks in Resources */,
+				BC6ED5EA1EDED92100A79FE9 /* EnemyCollision.sks in Resources */,
 				BCC495211ED5CB2100A9C310 /* LaunchScreen.storyboard in Resources */,
 				BCC495151ED5CB2100A9C310 /* Actions.sks in Resources */,
 			);
