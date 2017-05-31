@@ -4,19 +4,24 @@ class HUD: SKNode {
   var textureAtlas = SKTextureAtlas(named:"HUD")
   var coinAtlas = SKTextureAtlas(named: "Environment")
   var heartNodes:[SKSpriteNode] = []
-  let coinCountText = SKLabelNode(text: "000000")
+  let coinCountText = SKLabelNode(text: "0")
+  let scoreLabel = SKLabelNode(text: "Score: ")
+  let scoreCountText = SKLabelNode(text: "0")
   let restartButton = SKSpriteNode()
   let menuButton = SKSpriteNode()
   let pauseButton = SKSpriteNode()
   let playButton = SKSpriteNode()
+  let fontSize: CGFloat = 25
+  let fontName = "AvenirNext-HeavyItalic"
   
   func createHudNodes(screenSize: CGSize) {
     let cameraOrigin = CGPoint(x: screenSize.width / 2, y: screenSize.height / 2)
     let coinIcon = SKSpriteNode(texture: coinAtlas.textureNamed("coin-bronze"))
-    let coinPosition = CGPoint(x: -cameraOrigin.x + 23, y: cameraOrigin.y - 23)
+    let coinPosition = CGPoint(x: -cameraOrigin.x + 23, y: cameraOrigin.y - 45)
     coinIcon.size = CGSize(width: 26, height: 26)
     coinIcon.position = coinPosition
-    coinCountText.fontName = "AvenirNext-HeavyItalic"
+    coinCountText.fontName = fontName
+    coinCountText.fontSize = fontSize
     let coinTextPosition = CGPoint(x: -cameraOrigin.x + 41, y: coinPosition.y)
     coinCountText.position = coinTextPosition
     coinCountText.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
@@ -36,11 +41,26 @@ class HUD: SKNode {
     self.addChild(playButton)
     playButton.isHidden = true
     
+    let scorePosition = CGPoint(x: -cameraOrigin.x + 5, y: cameraOrigin.y - 15)
+    scoreLabel.fontName = fontName
+    scoreLabel.fontSize = fontSize
+    scoreLabel.position = CGPoint(x: -cameraOrigin.x + 10, y: scorePosition.y)
+    scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
+    scoreLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
+    scoreCountText.fontName = fontName
+    scoreCountText.fontSize = fontSize
+    scoreCountText.position = CGPoint(x: -cameraOrigin.x + 100, y: scorePosition.y)
+    scoreCountText.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
+    scoreCountText.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
+    self.addChild(scoreLabel)
+    self.addChild(scoreCountText)
+    
+    
     for index in 0 ..< 3 {
       let newHeartNode = SKSpriteNode(texture: textureAtlas.textureNamed("heart-full"))
-      newHeartNode.size = CGSize (width: 46, height: 40)
-      let xPos = -cameraOrigin.x + CGFloat(index * 58) + 33
-      let yPos = cameraOrigin.y - 66
+      newHeartNode.size = CGSize (width: 40, height: 35)
+      let xPos = -cameraOrigin.x + CGFloat(index * 50) + 30
+      let yPos = cameraOrigin.y - 83
       newHeartNode.position = CGPoint(x: xPos, y: yPos)
       heartNodes.append(newHeartNode)
       self.addChild(newHeartNode)
@@ -58,8 +78,13 @@ class HUD: SKNode {
   func setCoinCountDisplay(newCoinCount: Int) {
     let formatter = NumberFormatter()
     let number = NSNumber(value: newCoinCount)
-    formatter.minimumIntegerDigits = 6
-    if let coinStr = formatter.string(from: number) { coinCountText.text = coinStr }
+    if let coinString = formatter.string(from: number) { coinCountText.text = coinString }
+  }
+  
+  func setScoreDisplay(newScore: Int) {
+    let formatter = NumberFormatter()
+    let number = NSNumber(value: newScore)
+    if let scoreString = formatter.string(from: number) { scoreCountText.text = scoreString }
   }
   
   func setHealthDisplay(newHealth: Int) {

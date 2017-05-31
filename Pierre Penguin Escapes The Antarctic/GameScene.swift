@@ -143,6 +143,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   override func update(_ currentTime: TimeInterval) {
     if self.view?.isPaused == true { return }
+    hud.setScoreDisplay(newScore: Int(playerProgress/100))
     player.update()
   }
   
