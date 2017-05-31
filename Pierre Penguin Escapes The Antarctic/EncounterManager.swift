@@ -62,6 +62,9 @@ class EncounterManager {
           madFlyTest.reset()
         }
         
+        if let starTest = spriteNode as? Star {
+          starTest.reset()
+        }
         
         if let crateTest = spriteNode as? Crate {
           crateTest.reset()

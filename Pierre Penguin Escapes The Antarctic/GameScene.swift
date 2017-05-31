@@ -4,7 +4,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   let cam = SKCameraNode()
   let ground = Ground()
   let player = Player()
-  let powerUpStar = Star()
   let heartCrate = Crate()
   let hud = HUD()
   let encounterManager = EncounterManager()
@@ -17,6 +16,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   var backgrounds: [Background] = []
   
   override func didMove(to view: SKView) {
+    if !muted { self.run(SKAction.playSoundFileNamed("Sound/StartGame.aif", waitForCompletion: false)) }
     self.anchorPoint = .zero
     self.backgroundColor = UIColor(red: 0.4, green: 0.6, blue: 0.95, alpha: 1.0)
     self.camera = cam
@@ -25,21 +25,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     self.physicsWorld.contactDelegate = self
     self.addChild(self.camera!)
     self.camera!.zPosition = 50
-    if !muted { self.run(SKAction.playSoundFileNamed("Sound/StartGame.aif", waitForCompletion: false)) }
-    
     ground.position = CGPoint(x: -self.size.width * 2, y: 30)
     ground.size = CGSize(width: self.size.width * 6, height: 0)
     ground.createChildren()
     self.addChild(ground)
-    
     player.position = initialPlayerPosition
     self.addChild(player)
-    
     encounterManager.addEncountersToScene(gameScene: self)
-  
-    powerUpStar.position = CGPoint(x: -2000, y: -2000)
-    self.addChild(powerUpStar)
-  
     hud.createHudNodes(screenSize: self.size)
     self.camera!.addChild(hud)
     
@@ -59,7 +51,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     particlePool.addEmittersToScene(scene: self)
-    
     heartCrate.position = CGPoint(x: -2100, y: -2100)
     heartCrate.turnToHeartCrate()
     self.addChild(heartCrate)
@@ -108,18 +99,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       nextEncounterSpawnPosition += 1200
     }
     
-    let starRoll = Int(arc4random_uniform(10))
+    let random = Int(arc4random_uniform(10))
     
-    if starRoll == 0 {
-      if abs(player.position.x - powerUpStar.position.x) > 1200 {
-        let randomYPos = 50 + CGFloat(arc4random_uniform(400))
-        powerUpStar.position = CGPoint(x: nextEncounterSpawnPosition, y: randomYPos)
-        powerUpStar.physicsBody?.angularVelocity = 0
-        powerUpStar.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-      }
-    }
-    
-    if starRoll == 1 {
+    if random == 1 {
       heartCrate.reset()
       heartCrate.position = CGPoint(x: nextEncounterSpawnPosition - 600, y: 270)
     }
@@ -165,6 +147,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       }
     case PhysicsCategory.powerup.rawValue:
       player.starPower()
+      if let star = otherBody.node as? Star {
+        star.explode(gameScene: self)
+      }
     case PhysicsCategory.crate.rawValue:
       if let crate = otherBody.node as? Crate {
         crate.explode(gameScene: self)
