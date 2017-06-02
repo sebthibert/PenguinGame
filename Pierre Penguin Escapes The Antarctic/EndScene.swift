@@ -55,11 +55,11 @@ class EndScene: SKScene {
       let nodeTouched = atPoint(location)
       
       if nodeTouched.name == "restartGame" {
-        self.view?.presentScene(GameScene(size: self.size), transition: .crossFade(withDuration: 0.6))
+        self.view?.presentScene(GameScene(size: self.size), transition: .crossFade(withDuration: 0.4))
       } else if nodeTouched.name == "returnToMenu" {
-        self.view?.presentScene(MenuScene(size: self.size), transition: .crossFade(withDuration: 0.6))
+        self.view?.presentScene(MenuScene(size: self.size), transition: .crossFade(withDuration: 0.4))
       } else if nodeTouched.name == "showStats" {
-        self.view?.presentScene(StatsScene(size: self.size), transition: .crossFade(withDuration: 0.6))
+        self.view?.presentScene(StatsScene(size: self.size), transition: .crossFade(withDuration: 0.4))
       }
     }
   }

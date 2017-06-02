@@ -44,7 +44,7 @@ class StatsScene: SKScene {
       let nodeTouched = atPoint(location)
       
       if nodeTouched.name == "backToEndScene" {
-        self.view?.presentScene(EndScene(size: self.size), transition: .crossFade(withDuration: 0.6))
+        self.view?.presentScene(EndScene(size: self.size), transition: .crossFade(withDuration: 0.4))
       }
     }
   }

@@ -74,13 +74,13 @@ class Player: SKSpriteNode, GameSprite {
     }
     
     let slowFade = SKAction.sequence([
-      SKAction.fadeAlpha(to: 0.3, duration: 0.35),
-      SKAction.fadeAlpha(to: 0.7, duration: 0.35)
+      SKAction.fadeAlpha(to: 0.3, duration: 0.30),
+      SKAction.fadeAlpha(to: 0.7, duration: 0.30)
       ])
     
     let fastFade = SKAction.sequence([
-      SKAction.fadeAlpha(to: 0.3, duration: 0.2),
-      SKAction.fadeAlpha(to: 0.7, duration: 0.2)
+      SKAction.fadeAlpha(to: 0.3, duration: 0.15),
+      SKAction.fadeAlpha(to: 0.7, duration: 0.15)
       ])
     
     let fadeOutAndIn = SKAction.sequence([
@@ -156,7 +156,7 @@ class Player: SKSpriteNode, GameSprite {
     if self.health == 0 {
       die()
     } else {
-      self.run(self.damageAnimation)
+      self.run(self.damageAnimation, withKey: "damageAnimation")
     }
 
     if !muted { self.run(hurtSound) }
@@ -169,18 +169,30 @@ class Player: SKSpriteNode, GameSprite {
     self.run(self.dieAnimation)
     self.flapping = false
     self.forwardVelocity = 0
-    updateHighScores()
+    
+    if playerProgress/100 > highScore {
+      UserDefaults.standard.set(playerProgress/100, forKey:"HighScore")
+      UserDefaults.standard.synchronize()
+    }
+    
+    if coinsCollected > highCoinsCollected {
+      UserDefaults.standard.set(coinsCollected, forKey:"HighCoinsCollected")
+      UserDefaults.standard.synchronize()
+    }
   }
   
   func starPower() {
     if dead { return }
+    self.alpha = 1
     self.removeAction(forKey: "starPower")
+    self.removeAction(forKey: "damageAnimation")
     self.forwardVelocity = 400
     self.invulnerable = true
     
     let starSequence = SKAction.sequence([
       SKAction.scale(to: 1.5, duration: 0.3),
-      SKAction.wait(forDuration: 8),
+      SKAction.wait(forDuration: 3),
+      damageAnimation,
       SKAction.scale(to: 1, duration: 1),
       
       SKAction.run {
