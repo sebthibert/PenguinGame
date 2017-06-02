@@ -131,6 +131,7 @@ class Player: SKSpriteNode, GameSprite {
       self.physicsBody!.velocity.dy = 300
     }
     
+    self.forwardVelocity = self.forwardVelocity * 1.0001
     self.physicsBody?.velocity.dx = self.forwardVelocity
   }
   
@@ -170,8 +171,8 @@ class Player: SKSpriteNode, GameSprite {
     self.flapping = false
     self.forwardVelocity = 0
     
-    if playerProgress/100 > highScore {
-      UserDefaults.standard.set(playerProgress/100, forKey:"HighScore")
+    if playerProgress / 100 > highScore {
+      UserDefaults.standard.set(playerProgress / 100, forKey:"HighScore")
       UserDefaults.standard.synchronize()
     }
     
@@ -186,7 +187,7 @@ class Player: SKSpriteNode, GameSprite {
     self.alpha = 1
     self.removeAction(forKey: "starPower")
     self.removeAction(forKey: "damageAnimation")
-    self.forwardVelocity = 400
+    self.forwardVelocity = forwardVelocity * 1.5
     self.invulnerable = true
     
     let starSequence = SKAction.sequence([
@@ -196,7 +197,7 @@ class Player: SKSpriteNode, GameSprite {
       SKAction.scale(to: 1, duration: 1),
       
       SKAction.run {
-        self.forwardVelocity = 200
+        self.forwardVelocity = self.forwardVelocity / 1.5
         self.invulnerable = false
       }
       ])

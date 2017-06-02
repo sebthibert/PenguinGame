@@ -32,7 +32,7 @@ class EndScene: SKScene {
     self.addChild(statsButton)
     
     let scoreText = SKLabelNode(fontNamed: font)
-    scoreText.text = "Score: " + String(Int(playerProgress/100))
+    scoreText.text = "Score: " + String(Int(playerProgress / 100))
     scoreText.position = CGPoint(x: 0, y: 100)
     scoreText.fontSize = fontSizeMedium
     self.addChild(scoreText)
