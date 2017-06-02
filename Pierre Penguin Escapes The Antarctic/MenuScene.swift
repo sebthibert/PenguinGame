@@ -12,15 +12,15 @@ class MenuScene: SKScene {
     backgroundImage.zPosition = -1
     self.addChild(backgroundImage)
     
-    let logoText = SKLabelNode(fontNamed: "AvenirNext-Heavy")
+    let logoText = SKLabelNode(fontNamed: font)
     logoText.text = "Pierre Penguin"
     logoText.position = CGPoint(x: 0, y: 100)
-    logoText.fontSize = 60
+    logoText.fontSize = fontSizeLarge
     self.addChild(logoText)
-    let logoTextBottom = SKLabelNode(fontNamed: "AvenirNext-Heavy")
+    let logoTextBottom = SKLabelNode(fontNamed: font)
     logoTextBottom.text = "Escapes the Antarctic"
     logoTextBottom.position = CGPoint(x: 0, y: 50)
-    logoTextBottom.fontSize = 40
+    logoTextBottom.fontSize = fontSizeMedium
     self.addChild(logoTextBottom)
     
     if muted { muteButton.texture = textureAtlas.textureNamed("button-unmute") }
@@ -36,11 +36,11 @@ class MenuScene: SKScene {
     startButton.position = CGPoint(x: 0, y: -20)
     self.addChild(startButton)
     
-    let startText = SKLabelNode(fontNamed: "AvenirNext-HeavyItalic")
+    let startText = SKLabelNode(fontNamed: font)
     startText.text = "START GAME"
     startText.verticalAlignmentMode = .center
     startText.position = CGPoint(x: 0, y: 2)
-    startText.fontSize = 40
+    startText.fontSize = fontSizeMedium
     startText.name = "StartButton"
     startText.zPosition = 5
     startButton.addChild(startText)

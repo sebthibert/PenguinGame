@@ -33,8 +33,8 @@ class Crate: SKSpriteNode, GameSprite {
       gameScene.hud.setHealthDisplay(newHealth: gameScene.player.health)
       gameScene.particlePool.placeEmitter(node: self, emitterType: "heart")
     } else {
-      gameScene.coinsCollected += 1
-      gameScene.hud.setCoinCountDisplay(newCoinCount: gameScene.coinsCollected)
+      coinsCollected += 1
+      gameScene.hud.setCoinCountDisplay(newCoinCount: coinsCollected)
     }
 
     self.physicsBody?.categoryBitMask = 0

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC6ED5EA1EDED92100A79FE9 /* EnemyCollision.sks in Resources */ = {isa = PBXBuildFile; fileRef = BC6ED5E91EDED92100A79FE9 /* EnemyCollision.sks */; };
+		BC8D84971EE1665D00C34A5F /* StatsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8D84961EE1665D00C34A5F /* StatsScene.swift */; };
 		BCB8FC141ED5D73C00098EC2 /* Bee.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8FC131ED5D73C00098EC2 /* Bee.swift */; };
 		BCB8FC161ED5D7CA00098EC2 /* Ground.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8FC151ED5D7CA00098EC2 /* Ground.swift */; };
 		BCB8FC181ED5D89B00098EC2 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB8FC171ED5D89B00098EC2 /* Player.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		BC6ED5E91EDED92100A79FE9 /* EnemyCollision.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EnemyCollision.sks; sourceTree = "<group>"; };
+		BC8D84961EE1665D00C34A5F /* StatsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsScene.swift; sourceTree = "<group>"; };
 		BCB8FC131ED5D73C00098EC2 /* Bee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bee.swift; sourceTree = "<group>"; };
 		BCB8FC151ED5D7CA00098EC2 /* Ground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ground.swift; sourceTree = "<group>"; };
 		BCB8FC171ED5D89B00098EC2 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -91,6 +93,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC8D84981EE166A700C34A5F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				BCD620001EDF27C700A95F0D /* EndScene.swift */,
+				BCC495161ED5CB2100A9C310 /* GameScene.swift */,
+				BCB8FC341ED8269E00098EC2 /* MenuScene.swift */,
+				BC8D84961EE1665D00C34A5F /* StatsScene.swift */,
+			);
+			name = Scenes;
+			sourceTree = "<group>";
+		};
 		BCB8FC231ED7719900098EC2 /* Encounters */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,15 +156,12 @@
 				BCB8FC211ED76F9100098EC2 /* Coin.swift */,
 				BCB8FC381ED8301F00098EC2 /* Crate.swift */,
 				BCB8FC281ED7734400098EC2 /* EncounterManager.swift */,
-				BCD620001EDF27C700A95F0D /* EndScene.swift */,
-				BCC495161ED5CB2100A9C310 /* GameScene.swift */,
 				BCC4952A1ED5D4EF00A9C310 /* GameSprite.swift */,
 				BCC495181ED5CB2100A9C310 /* GameViewController.swift */,
 				BCB8FC431ED870BF00098EC2 /* Global.swift */,
 				BCB8FC151ED5D7CA00098EC2 /* Ground.swift */,
 				BCB8FC2E1ED81FD100098EC2 /* HUD.swift */,
 				BCB8FC1B1ED76F1F00098EC2 /* MadFly.swift */,
-				BCB8FC341ED8269E00098EC2 /* MenuScene.swift */,
 				BCB8FC3F1ED8318A00098EC2 /* ParticlePool.swift */,
 				BCB8FC171ED5D89B00098EC2 /* Player.swift */,
 				BCB8FC191ED76EE100098EC2 /* Star.swift */,
@@ -160,6 +170,7 @@
 				BCC4951F1ED5CB2100A9C310 /* LaunchScreen.storyboard */,
 				BCC4951A1ED5CB2100A9C310 /* Main.storyboard */,
 				BCB8FC3E1ED8315700098EC2 /* Particle Emitters */,
+				BC8D84981EE166A700C34A5F /* Scenes */,
 			);
 			path = "Pierre Penguin Escapes The Antarctic";
 			sourceTree = "<group>";
@@ -255,6 +266,7 @@
 				BCB8FC181ED5D89B00098EC2 /* Player.swift in Sources */,
 				BCB8FC1E1ED76F3A00098EC2 /* Bat.swift in Sources */,
 				BCB8FC221ED76F9100098EC2 /* Coin.swift in Sources */,
+				BC8D84971EE1665D00C34A5F /* StatsScene.swift in Sources */,
 				BCC495191ED5CB2100A9C310 /* GameViewController.swift in Sources */,
 				BCC495111ED5CB2100A9C310 /* AppDelegate.swift in Sources */,
 				BCB8FC201ED76F6300098EC2 /* Blade.swift in Sources */,

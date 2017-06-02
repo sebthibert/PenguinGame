@@ -10,13 +10,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   let particlePool = ParticlePool()
   var screenCenterY = CGFloat()
   let initialPlayerPosition = CGPoint(x: 150, y: 250)
-  var playerProgress = CGFloat()
   var nextEncounterSpawnPosition = CGFloat(150)
-  var coinsCollected = 0
   var backgrounds: [Background] = []
   
   override func didMove(to view: SKView) {
     if !muted { self.run(SKAction.playSoundFileNamed("Sound/StartGame.aif", waitForCompletion: false)) }
+    dead = false
+    playerProgress = 0
+    coinsCollected = 0
     self.anchorPoint = .zero
     self.backgroundColor = UIColor(red: 0.4, green: 0.6, blue: 0.95, alpha: 1.0)
     self.camera = cam
@@ -138,8 +139,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     case PhysicsCategory.coin.rawValue:
       if let coin = otherBody.node as? Coin {
         coin.collect()
-        self.coinsCollected += coin.value
-        hud.setCoinCountDisplay(newCoinCount: self.coinsCollected)
+        coinsCollected += coin.value
+        hud.setCoinCountDisplay(newCoinCount: coinsCollected)
       }
     case PhysicsCategory.powerup.rawValue:
       player.starPower()

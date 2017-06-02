@@ -9,17 +9,15 @@ class HUD: SKNode {
   let scoreCountText = SKLabelNode(text: "0")
   let pauseButton = SKSpriteNode()
   let playButton = SKSpriteNode()
-  let fontSize: CGFloat = 25
-  let fontName = "AvenirNext-HeavyItalic"
   
   func createHudNodes(screenSize: CGSize) {
     let cameraOrigin = CGPoint(x: screenSize.width / 2, y: screenSize.height / 2)
-    let coinIcon = SKSpriteNode(texture: coinAtlas.textureNamed("coin-bronze"))
+    let coinIcon = SKSpriteNode(texture: coinAtlas.textureNamed("coin-gold"))
     let coinPosition = CGPoint(x: -cameraOrigin.x + 23, y: cameraOrigin.y - 45)
     coinIcon.size = CGSize(width: 26, height: 26)
     coinIcon.position = coinPosition
-    coinCountText.fontName = fontName
-    coinCountText.fontSize = fontSize
+    coinCountText.fontName = font
+    coinCountText.fontSize = fontSizeSmall
     let coinTextPosition = CGPoint(x: -cameraOrigin.x + 41, y: coinPosition.y)
     coinCountText.position = coinTextPosition
     coinCountText.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
@@ -40,13 +38,13 @@ class HUD: SKNode {
     playButton.isHidden = true
     
     let scorePosition = CGPoint(x: -cameraOrigin.x + 5, y: cameraOrigin.y - 15)
-    scoreLabel.fontName = fontName
-    scoreLabel.fontSize = fontSize
+    scoreLabel.fontName = font
+    scoreLabel.fontSize = fontSizeSmall
     scoreLabel.position = CGPoint(x: -cameraOrigin.x + 10, y: scorePosition.y)
     scoreLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
     scoreLabel.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
-    scoreCountText.fontName = fontName
-    scoreCountText.fontSize = fontSize
+    scoreCountText.fontName = font
+    scoreCountText.fontSize = fontSizeSmall
     scoreCountText.position = CGPoint(x: -cameraOrigin.x + 100, y: scorePosition.y)
     scoreCountText.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
     scoreCountText.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
@@ -79,8 +77,10 @@ class HUD: SKNode {
   
   func setHealthDisplay(newHealth: Int) {
     let fadeAction = SKAction.fadeAlpha(to: 0.2, duration: 0.3)
+    
     for index in 0 ..< heartNodes.count {
       if index < newHealth {
+        if dead { return }
         heartNodes[index].alpha = 1
       } else {
         heartNodes[index].run(fadeAction)

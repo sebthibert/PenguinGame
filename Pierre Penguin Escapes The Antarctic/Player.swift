@@ -163,14 +163,17 @@ class Player: SKSpriteNode, GameSprite {
   }
   
   func die() {
+    dead = true
     self.alpha = 1
     self.removeAllActions()
     self.run(self.dieAnimation)
     self.flapping = false
     self.forwardVelocity = 0
+    updateHighScores()
   }
   
   func starPower() {
+    if dead { return }
     self.removeAction(forKey: "starPower")
     self.forwardVelocity = 400
     self.invulnerable = true
