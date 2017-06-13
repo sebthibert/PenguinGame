@@ -21,6 +21,7 @@ class EncounterManager {
       encounters.append(encounterNode)
       saveSpritePositions(node: encounterNode)
       encounterNode.enumerateChildNodes(withName: "gold") { (node: SKNode, stop: UnsafeMutablePointer) in (node as? Coin)?.turnToGold() }
+      encounterNode.enumerateChildNodes(withName: "heart") { (node: SKNode, stop: UnsafeMutablePointer) in (node as? Crate)?.turnToHeartCrate() }
     }
   }
   

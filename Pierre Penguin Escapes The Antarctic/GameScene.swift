@@ -4,7 +4,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   let cam = SKCameraNode()
   let ground = Ground()
   let player = Player()
-  let heartCrate = Crate()
   let hud = HUD()
   let encounterManager = EncounterManager()
   let particlePool = ParticlePool()
@@ -52,9 +51,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     particlePool.addEmittersToScene(scene: self)
-    heartCrate.position = CGPoint(x: -2100, y: -2100)
-    heartCrate.turnToHeartCrate()
-    self.addChild(heartCrate)
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -93,14 +89,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     if player.position.x > nextEncounterSpawnPosition {
       encounterManager.placeNextEncounter(currentXPos: nextEncounterSpawnPosition)
-      nextEncounterSpawnPosition += 1200
-    }
-    
-    let random = Int(arc4random_uniform(10))
-    
-    if random == 1 {
-      heartCrate.reset()
-      heartCrate.position = CGPoint(x: nextEncounterSpawnPosition - 600, y: 270)
+      nextEncounterSpawnPosition += 900
     }
     
     for background in self.backgrounds {
